@@ -1,40 +1,145 @@
-![image](https://github.com/user-attachments/assets/d5b7a89c-2f5d-4f4c-b334-5b0f65234757)
+# Company Warranty Management System
 
-# What is ERPNext? 
-ERPNext is business management software that helps companies stay on top of their operations, whether it’s tracking inventory, managing finances, handling projects, or keeping customers happy. Think of it as the central nervous system for your business, bringing everything together in one place.
+This repository contains the Docker-based setup for our company's Warranty Management System using ERPNext v15, integrated with Warranty Management and RMA (Return Merchandise Authorization) modules.
 
-Most ERPs are clunky, expensive, and a headache to customize. ERPNext is different. It is open-source, cloud-ready, and built to be flexible. You get the power of an enterprise system without the usual complications.
+## Overview
+
+This system manages our warranty and returns processes, including:
+- Product warranty tracking
+- RMA processing
+- Customer service management
+- Warranty claims handling
+- Product returns workflow
+- Quality control integration
+
+## System Requirements
+
+- Docker Engine (20.10.x or higher)
+- Docker Compose (2.x or higher)
+- Minimum 4GB RAM
+- 20GB available storage
+- Linux/Unix-based OS (recommended)
+- Python: Version 3.10.12+
+- Node.js: Version 18.x+
+- MariaDB: Version 10.6+
+- Redis: Latest version
 
 
-# Why ERPNext? 
-Because running a business is already hard enough. Your ERP should not make it harder.
+## System Purpose
 
-With ERPNext, you get a complete set of tools for all your business needs, built in and ready to use. With ERPNext, you get:
+This system manages the complete lifecycle of product warranties and returns, enabling:
 
-A complete suite of tools – From accounting to Accounting to Inventory, everything you need is built-in.
-No vendor lock-in – Open-source means you own your data and have the freedom to customize.
-Easy to use – A clean, modern interface that doesn’t feel like it was built in the ’90s.
-Cost-effective – No sky-high licensing fees. Just powerful software that works.
-Whether you are a small business or a growing enterprise, ERPNext helps you stay organized, automate the boring stuff, and focus on what really matters - running your business.
+### Warranty Management
+- Product warranty registration and tracking
+- Warranty period monitoring
+- Warranty claim processing
+- Service history tracking
+- Parts replacement management
 
-# Key features 
-ERPNext will help you to:
+### RMA (Return Merchandise Authorization)
+- Customer return requests
+- RMA ticket generation
+- Return approval workflow
+- Defect tracking
+- Quality control integration
 
-Keep track of the financial indicators of the organization.
-Track all invoices and payments.
-Know what quantity of which product is available in stock.
-Identify and track your key performance indicators (KPIs).
-Identify open customer queries.
-Manage employee payroll.
-Assign tasks and follow up on them.
-Maintain a database of all your customers, suppliers, and contacts.
-Prepare quotations.
-Track your budgets and spending.
-Determine effective selling price based on the actual raw material, machinery and effort cost.
-Get reminders on maintenance schedules.
-Publish your website.
-And a ton more.
+## Warranty Process Flow
 
-# Under the Hood 
-Frappe Framework: A full-stack web application framework written in Python and Javascript. The framework provides a robust foundation for building web applications, including a database abstraction layer, user authentication, and a REST API.
-Frappe UI: A Vue-based UI library, to provide a modern user interface. The Frappe UI library provides a variety of components that can be used to build single-page applications on top of the Frappe Framework.
+1. **Product Registration**
+   - Record product details
+   - Register warranty period
+   - Store customer information
+   - Assign warranty terms
+
+2. **Warranty Claim Processing**
+   - Customer reports issue
+   - Technician assessment
+   - Problem diagnosis
+   - Repair/replacement decision
+   - Service tracking
+
+3. **RMA Workflow**
+   - Customer initiates return request
+   - RMA number generation
+   - Return authorization
+   - Product receipt and inspection
+   - Resolution (repair/replace/refund)
+
+4. **Quality Control**
+   - Defect analysis
+   - Root cause investigation
+   - Quality reports generation
+   - Improvement recommendations
+
+# Let's Start.
+
+### apps.json ----> file
+The `apps.json` file is a configuration file that specifies which Frappe/ERPNext apps should be installed in your ERPNext instance. It contains a list of apps with their repository URLs and branches.
+
+Example of apps.json:
+    "url": "https://github.com/frappe/warranty_management",
+
+### .env-example ----> file
+The `.env-example` file is a template file that contains example environment variables needed for configuring your ERPNext installation. This file should be copied to `.env` and customized with your specific values.
+
+Key environment variables include:
+
+- Database Configuration:
+  - MYSQL_ROOT_PASSWORD: Root password for MariaDB
+  - MYSQL_USER: Database user for ERPNext
+  - MYSQL_PASSWORD: Database password
+  - MYSQL_DATABASE: Database name
+
+- ERPNext Configuration: 
+  - ADMIN_PASSWORD: Administrator password
+  - DB_HOST: Database host (usually mariadb)
+  - DB_NAME: Database name
+  - DB_PASSWORD: Database password
+  - DB_USER: Database user
+
+- Ports Configuration:
+  - ERPNEXT_PORT: Port for ERPNext web interface (default 8000)
+  - SOCKETIO_PORT: Port for Socket.IO (default 9000)
+
+Make sure to copy this file to `.env` and update the values according to your needs before starting the installation.
+
+## Installation
+1. Clone repository:
+```bash
+git clone [repository-url]
+cd warranty-management
+```
+
+2. Configure environment:
+```bash
+cp .env.example .env
+# Update .env with your settings
+```
+
+3. Start system:
+```bash
+docker-compose up -d
+```
+
+4. Access system:
+- URL: `http://localhost:8000`
+- Default login: `Administrator`
+- Password: Set in `.env` file
+
+
+## License
+
+This is an internal company tool. All rights reserved.
+
+## Version History
+
+- v1.0.0 (2024-XX-XX)
+  - Initial setup with ERPNext v15
+  - Warranty Management integration
+  - RMA system implementation
+
+## Acknowledgments
+
+- Based on ERPNext v15
+- Warranty Management module
+- RMA Management module
