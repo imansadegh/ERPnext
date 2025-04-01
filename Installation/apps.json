@@ -1,0 +1,14 @@
+[
+    {
+      "url": "https://github.com/frappe/erpnext",
+      "branch": "version-15"
+    },
+    {
+      "url": "https://github.com/frappe/warranty_management",
+      "branch": "develop"
+    },
+    {
+      "url": "https://github.com/frappe/rma",
+      "branch": "develop"
+    }
+  ]
