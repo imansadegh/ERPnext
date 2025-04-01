@@ -7,3 +7,8 @@ Node.js: Version 18.x+
 MariaDB: Version 10.6+
 Redis: Latest version
 Docker: Latest version
+
+# Customize for our company:
+We need warranty management application and RMA application to check about Problem goods, I have to decide use this application to create new cycle of management in Warranty.
+
+## Let's Start.
